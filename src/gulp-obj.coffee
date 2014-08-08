@@ -12,8 +12,15 @@ obj.delete = (key) ->
     delete file._obj[key]
 
 obj.key = (key) ->
+  isReverse = key.charAt(0) is '!'
+  if isReverse
+    key = key.substr 1
   (file) ->
-    file._obj?[key]
+    return unless file._obj
+    val = file._obj[key]
+    if isReverse
+      return !val
+    val
 
 obj.destroy = ->
   (file) ->
