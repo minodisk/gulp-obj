@@ -11,19 +11,25 @@ obj.delete = (key) ->
     return unless file._obj?
     delete file._obj[key]
 
-obj.key = (key) ->
-  isReverse = key.charAt(0) is '!'
-  if isReverse
-    key = key.substr 1
-  (file) ->
-    return unless file._obj
-    val = file._obj[key]
-    if isReverse
-      return !val
-    val
-
 obj.destroy = ->
   (file) ->
     delete file._obj
+
+obj.key = (key) ->
+  (file) ->
+    return unless file._obj
+    file._obj[key]
+
+obj.ok = (key) ->
+  (file) ->
+    !!file._obj?[key]
+
+obj.ng = (key) ->
+  (file) ->
+    !!!file._obj?[key]
+
+obj.equal = (key, val) ->
+  (file) ->
+    file._obj?[key] is val
 
 module.exports = obj
