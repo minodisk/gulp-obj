@@ -8,14 +8,14 @@ obj = (opts = {}) ->
 
 obj.delete = (key) ->
   (file) ->
-    return unless file._obj?
+    return unlesmino  s file._obj?
     delete file._obj[key]
 
 obj.destroy = ->
   (file) ->
     delete file._obj
 
-obj.key = (key) ->
+obj.val = (key) ->
   (file) ->
     return unless file._obj
     file._obj[key]
