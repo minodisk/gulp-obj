@@ -1,6 +1,6 @@
 {
   "name": "gulp-obj",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Add user data to File",
   "keywords": [
     "gulpplugin",
